@@ -1,0 +1,122 @@
+---
+name: bmtest
+title: Brunner-Munzel Test
+jrs: '1.0'
+
+items:
+    - name: bmtest
+      title: Brunner-Munzel Test
+      description: a table containing the Brunner Munzel Test results
+      type: Table
+      rows: (vars)
+      clearWith:
+        - group
+        - hypothesis
+        - miss
+        - ciWidth
+        - n_perm
+        - etl
+
+      columns:
+        - name: var
+          title: ""
+          content: ($key)
+          type: text
+          combineBelow: true
+
+        - name: test[asym]
+          title: ''
+          type: text
+          content: Asymptotic
+          visible: (asym)
+
+        - name: stat[asym]
+          title: Statistic
+          type: number
+          visible: (asym)
+
+        - name: df[asym]
+          title: df
+          type: number
+          visible: (asym)
+
+        - name: p[asym]
+          title: p
+          type: number
+          format: zto,pvalue
+          visible: (asym)
+
+        - name: relEff[asym]
+          title: Relative Effect
+          type: number
+          visible: (relEff && asym)
+
+        - name: cil[asym]
+          title: Lower
+          type: number
+          visible: (relEff && ci && asym)
+
+        - name: ciu[asym]
+          title: Upper
+          type: number
+          visible: (relEff && ci && asym)
+
+        - name: var
+          title: ""
+          content: ($key)
+          type: text
+          combineBelow: true
+
+        - name: test[randomPerm]
+          title: ''
+          type: text
+          content: Random Permutation
+          visible: (randomPerm)
+
+        - name: stat[randomPerm]
+          title: Statistic
+          type: number
+          visible: (randomPerm)
+
+        - name: p[randomPerm]
+          title: p
+          type: number
+          format: zto,pvalue
+          visible: (randomPerm)
+
+        - name: relEff[randomPerm]
+          title: Relative Effect
+          type: number
+          visible: (relEff && randomPerm)
+
+        - name: cil[randomPerm]
+          title: Lower
+          type: number
+          visible: (relEff && ci && randomPerm)
+
+        - name: ciu[randomPerm]
+          title: Upper
+          type: number
+          visible: (relEff && ci && randomPerm)
+
+        - name: test[fullPerm]
+          title: ''
+          type: text
+          content: Full Permutation
+          visible: (fullPerm)
+
+        - name: stat[fullPerm]
+          title: Statistic
+          type: number
+          visible: (fullPerm)
+
+        - name: p[fullPerm]
+          title: p
+          type: number
+          format: zto,pvalue
+          visible: (fullPerm)
+
+        - name: relEff[fullPerm]
+          title: Relative Effect
+          type: number
+          visible: (relEff && fullPerm)
